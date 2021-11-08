@@ -39,6 +39,25 @@ public class Rover {
 
         }
     }
+    public String turnRight() {
+        switch(direction)
+        {
+            case "N":
+                return direction="E";
 
+            case "W":
+                return direction="N";
+
+            case "S":
+                return direction="W";
+
+            case "E":
+                return direction="S";
+
+            default:
+                throw new IllegalArgumentException();
+
+        }
+    }
 
 }
