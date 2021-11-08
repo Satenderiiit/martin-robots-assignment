@@ -1,6 +1,8 @@
 package com.mars.robot.move;
 
 
+import com.mars.robot.model.Coordinate;
+
 public class Rover {
 
     private static final int MAX_X_COORDINATE = 50;
@@ -58,6 +60,9 @@ public class Rover {
                 throw new IllegalArgumentException();
 
         }
+    }
+    public Coordinate moveForward() {
+      return null;
     }
 
 }

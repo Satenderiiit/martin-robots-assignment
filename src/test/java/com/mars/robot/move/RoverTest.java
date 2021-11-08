@@ -28,4 +28,13 @@ public class RoverTest {
         assertEquals("S", rover.direction);
     }
 
+    @Test
+    @DisplayName("should moves forward one grid point in the direction of the current orientation i.e. East")
+    public void shouldMoveForward(){
+        rover = new Rover("1 1 E");
+        rover.moveForward();
+        assertEquals(2, rover.xAxis);
+        assertEquals(1, rover.yAxis);
+    }
+
 }
