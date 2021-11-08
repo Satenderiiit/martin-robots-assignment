@@ -12,6 +12,7 @@ public class Rover {
     public String direction;
     public String robotStatus="";
     private String[] message;
+    private Coordinate coordinate = new Coordinate(xAxis, yAxis);
 
 
     public Rover(String location){
@@ -61,8 +62,61 @@ public class Rover {
 
         }
     }
+
     public Coordinate moveForward() {
-      return null;
+
+        switch(direction)
+        {
+            case "N":
+                yAxis += 1;
+                break;
+
+            case "W":
+                xAxis -= 1;
+                break;
+
+            case "S":
+                yAxis -= 1;
+                break;
+
+            case "E":
+                xAxis += 1;
+                break;
+
+            default:
+                throw new IllegalArgumentException();
+
+        }
+        return new Coordinate(xAxis, yAxis);
+    }
+
+    public void robotInstructionProcessing(String instructions){
+        char[] commands = instructions.toCharArray();
+        if(commands.length < 100) {
+            for (char command : commands) {
+                switch (command) {
+                    case 'L':
+                        direction= turnLeft();
+                        break;
+
+                    case 'R':
+                        direction= turnRight();
+                        break;
+                    case 'F':
+                        coordinate = moveForward();
+
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Instruction should only be in L R or F characters");
+                }
+            }
+            if(coordinate.X()>50 || coordinate.Y()>50){
+                robotStatus = "LOST";
+            }
+
+        } else{
+            throw new IllegalArgumentException("Instruction should be less than 100 characters in length.");
+        }
     }
 
 }
