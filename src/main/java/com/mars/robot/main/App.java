@@ -1,11 +1,13 @@
 package com.mars.robot.main;
 
 
+import com.mars.robot.move.Rover;
+
+import java.util.Scanner;
+
 public class App {
 
     public static void main(String[] args) {
-
-        System.out.println("TBD Martin robots-asignment  \n");
 
         // Problem statement
         // Mars surface model as rectangular grid. -->Robot movement boundary
@@ -37,10 +39,14 @@ public class App {
         // MAX_X_COORDINATE & MAX_Y_COORDINATE is 50 respectively.
         // Instruction commands.length < 100
 
+        System.out.println("Please provide positions for the robot format eg: 1 1 E  \n");
+        Scanner scan = new Scanner(System.in);
+        String robotPositions = scan.nextLine();
 
-
-
-
-
+        Rover rover = new Rover(robotPositions);
+        System.out.println("Please provide robot instruction format eg: RFRFRFRF \n");
+        String robotInstructions = scan.nextLine();
+        rover.robotInstructionProcessing(robotInstructions);
+        System.out.println("Robots position after instruction command execution: " + rover.xAxis +" "+ rover.yAxis+" "+rover.direction + " " + rover.robotStatus);
     }
 }
