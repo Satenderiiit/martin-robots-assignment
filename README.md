@@ -12,3 +12,8 @@ The surface of Mars can be modelled by a rectangular grid around which robots ar
 
 
 In General TDD , Code Machine MACOS; Intellij IDEA
+
+#UseCase execution
+
+1. Run App.main()
+2. 
