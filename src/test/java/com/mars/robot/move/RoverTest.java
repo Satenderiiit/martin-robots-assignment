@@ -15,10 +15,17 @@ public class RoverTest {
     @DisplayName("should turns left 90 degrees and remains on the current grid point.")
     public void shouldTurnLeft(){
         rover = new com.mars.robot.move.Rover("1 1 E");
-        rover.printInstruction();
         rover.turnLeft();
         assertEquals("N", rover.direction);
 
+    }
+
+    @Test
+    @DisplayName("should turns right 90 degrees and remains on the current grid point.")
+    public void shouldTurnRight(){
+        rover = new Rover("1 1 E");
+        rover.turnRight();
+        assertEquals("S", rover.direction);
     }
 
 }

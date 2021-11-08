@@ -19,14 +19,6 @@ public class Rover {
         this.direction = message[2];
     }
 
-    public void printInstruction(){
-        System.out.println("xAxis "+xAxis);
-        System.out.println("yAxis "+yAxis);
-        System.out.println("direction "+direction);
-    }
-
-
-
     public String turnLeft(){
         switch(direction)
         {
